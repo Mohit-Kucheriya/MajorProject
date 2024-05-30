@@ -10,10 +10,16 @@
     <ul>
       <li><%= listing.title %></li>
       <li><%= listing.description %></li>
-      <li>&#x20B9; <%= listing.price.toLocaleString("en-in") %></li>   <!--to add coma(,) in rupees we use toLocaleString("en-in")-->
+      <li>&#x20B9; <%= listing.price.toLocaleString("en-in") %></li>
+      <!--to add coma(,) in rupees we use toLocaleString("en-in")-->
       <li><%= listing.location %></li>
       <li><%= listing.country %></li>
     </ul>
-    <a href="/listings/<%= listing._id %>/edit">Edit your Listing</a>
+    <a href="/listings/<%= listing._id %>/edit">Edit your Listing</a
+    ><br /><br />
+    <!-- Delete button -->
+    <form method="post" action="/listings/<%= listing._id %>?_method=DELETE">
+      <button>Delete</button>
+    </form>
   </body>
 </html>
