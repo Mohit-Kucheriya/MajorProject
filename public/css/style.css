@@ -1,0 +1,68 @@
+*body{
+    padding: 0 1rem !important;
+}
+.navbar {
+  height: 4rem;
+  background-color: #fff;
+}
+
+.fa-compass {
+  font-size: 1.5rem;
+  color: #e31c5b;
+}
+
+.nav-link {
+  color: #222 !important;
+}
+
+/* Footer */
+
+.f-info {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  height: 8rem;
+  /* background-color: #dadada; */
+}
+
+.f-info-links,
+.f-info-social,
+.f-info-brand {
+  width: 100%;
+  text-align: center;
+
+}
+.f-info-links a {
+  text-decoration: none;
+  color: #222;
+  margin-right: 1rem;
+}
+
+.f-info-links a:hover {
+  text-decoration: underline;
+}
+
+.f-info-social i {
+  margin: 0 1rem;
+}
+
+.card{
+    border: none !important;
+    margin-bottom: 1rem;
+
+}
+.card-img-top{
+    border-radius: 0.5rem;
+    width: 100%;
+    object-fit: cover !important;
+
+}
+
+.card-body{
+    padding: 0 !important;
+}
+
+.card-text> span{
+    font-weight: 500;
+}
