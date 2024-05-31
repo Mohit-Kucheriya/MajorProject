@@ -84,13 +84,21 @@ body {
   opacity: 0.2;
 }
 
-.add-btn{
-    background-color: #e31c5b;
-    color: #fff;
-    border: none;
+.add-btn {
+  background-color: #e31c5b;
+  color: #fff;
+  border: none;
 }
-.add-btn:hover{
-    background-color: #e31c5b !important;
-    color: #fff;
-    border: none;
+.add-btn:hover {
+  background-color: #e31c5b !important;
+  color: #fff;
+  border: none;
+}
+
+.show-img {
+  height: 30vh;
+}
+
+.btns {
+  display: flex;
 }
