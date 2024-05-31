@@ -1,5 +1,6 @@
 <%- layout("/layouts/boilerplate") %>
 <body>
+  <br>
   <h3>All Listings</h3>
   <!-- <form method="get" action="/listings/new">
     <button>Create new list</button>
@@ -7,16 +8,25 @@
 
   <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1">
     <% for( listing of allListings) { %>
-      <div class="card col" >
-        <img src="<%= listing.image %>" class="card-img-top" alt=""  style="height: 20rem"/>
+    <a href="/listings/<%= listing._id %>" class="img-links">
+      <div class="card col">
+        <img
+          src="<%= listing.image %>"
+          class="card-img-top"
+          alt=""
+          style="height: 18rem"
+        />
+        <div class="card-img-overlay"></div>
+
         <div class="card-body">
           <h5 class="card-title"><%= listing.title %></h5>
           <p class="card-text">
-           <span> &#x20B9;<%= listing.price.toLocaleString("en-in")%></span> night
+            <span> &#x20B9;<%= listing.price.toLocaleString("en-in")%></span>
+            night
           </p>
         </div>
       </div>
-      <% } %>
+    </a>
+    <% } %>
   </div>
-
 </body>

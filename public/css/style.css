@@ -1,5 +1,11 @@
-*body{
-    padding: 0 1rem !important;
+body {
+  padding: 0 1rem !important;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+#container {
+  flex: 1;
 }
 .navbar {
   height: 4rem;
@@ -31,7 +37,6 @@
 .f-info-brand {
   width: 100%;
   text-align: center;
-
 }
 .f-info-links a {
   text-decoration: none;
@@ -47,22 +52,45 @@
   margin: 0 1rem;
 }
 
-.card{
-    border: none !important;
-    margin-bottom: 1rem;
-
+.card {
+  border: none !important;
+  margin: 1rem;
 }
-.card-img-top{
-    border-radius: 0.5rem;
-    width: 100%;
-    object-fit: cover !important;
-
+.card-img-top {
+  border-radius: 0.5rem;
+  width: 100%;
+  object-fit: cover !important;
 }
 
-.card-body{
-    padding: 0 !important;
+.card-body {
+  padding: 0 !important;
 }
 
-.card-text> span{
-    font-weight: 500;
+.card-text > span {
+  font-weight: 500;
+}
+
+/* a-> links */
+.img-links {
+  text-decoration: none;
+}
+
+/* card */
+.card-img-overlay {
+  opacity: 0;
+}
+.card-img-overlay:hover {
+  background-color: #fff;
+  opacity: 0.2;
+}
+
+.add-btn{
+    background-color: #e31c5b;
+    color: #fff;
+    border: none;
+}
+.add-btn:hover{
+    background-color: #e31c5b !important;
+    color: #fff;
+    border: none;
 }
