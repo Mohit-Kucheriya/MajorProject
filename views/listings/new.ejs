@@ -2,7 +2,7 @@
 <div class="row mt-2">
   <div class="col-8 offset-2">
     <h3>Create a new Listing!</h3>
-    <form method="post" action="/listings">
+    <form method="post" action="/listings" novalidate class="needs-validation">
       <div class="mb-3">
         <label for="title" class="form-label">Title</label>
         <input
@@ -10,7 +10,14 @@
           name="listing[title]"
           placeholder="Enter title"
           class="form-control"
+          required
         />
+        <div class="valid-feedback">  <!--To display after user fill correct info-->
+          Looks good!             
+        </div>
+        <div class="invalid-feedback">
+          Title is Required! .
+        </div>
       </div>
 
       <div class="mb-3">
@@ -20,7 +27,14 @@
           id="description"
           rows="3"
           class="form-control"
+          required
         ></textarea>
+        <div class="valid-feedback">  <!--To display after user fill correct info-->
+          Looks good!             
+        </div>
+        <div class="invalid-feedback">
+          Please write a short description.
+        </div>
       </div>
 
       <div class="mb-3">
@@ -41,7 +55,14 @@
           name="listing[price]"
           class="form-control"
           id="price"
+          required
         />
+        <div class="valid-feedback">  <!--To display after user fill correct info-->
+          Looks good!             
+        </div>
+        <div class="invalid-feedback">
+          Please enter a Valid Price.
+        </div>
       </div>
 
       <!-- <div class="row"> -->
@@ -55,7 +76,15 @@
           id="location"
           class="form-control"
           placeholder="The Pink City"
+          required
         />
+        <div class="valid-feedback">  <!--To display after user fill correct info-->
+          Looks good!             
+        </div>
+        <div class="invalid-feedback">
+          Location should be valid.
+        </div>
+
       </div>
 
       <div class="mb-3">
@@ -67,7 +96,14 @@
           id="country"
           class="form-control"
           placeholder="India"
+          required
         />
+        <div class="valid-feedback">  <!--To display after user fill correct info-->
+          Looks good!             
+        </div>
+        <div class="invalid-feedback">
+          Country should be valid.
+        </div>
       </div>
       <!-- </div> -->
       <button class="btn btn-dark my-2">Add</button>
