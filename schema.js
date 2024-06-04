@@ -1,5 +1,4 @@
 const Joi = require('joi');
-
 const listingSchema = Joi.object({
     listing: Joi.object({
         title: Joi.string().required(),
@@ -11,4 +10,4 @@ const listingSchema = Joi.object({
     }).required()
 });
 
-module.exports = listingSchema;
+module.exports = { listingSchema }

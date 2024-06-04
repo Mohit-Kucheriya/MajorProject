@@ -41,6 +41,7 @@ app.get("/", (req, res) => {
 
 // Function to check Validation
 const validationListing = (req, res, next) => {
+    console.log(listingSchema);
     let { error } = listingSchema.validate(req.body);
     if (error) {
         throw new ExpressError(400, error);
