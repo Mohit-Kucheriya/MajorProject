@@ -45,6 +45,9 @@ const validationListing = (req, res, next) => {
     if (error) {
         throw new ExpressError(400, error);
     }
+    else{
+           next();
+     }
 };
 
 // Index Route
