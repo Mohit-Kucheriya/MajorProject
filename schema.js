@@ -8,7 +8,7 @@ const listingSchema = Joi.object({
         image: Joi.string().allow("", null).required,
         location: Joi.string().required,
         country: Joi.string().required,
-    }).required
+    }).required()
 });
 
 module.exports = listingSchema;
