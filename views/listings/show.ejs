@@ -1,15 +1,12 @@
 <% layout("/layouts/boilerplate") %>
 <div class="row mt-2">
-  <div class="col-8 offset-3">
-    <h3 class="mx-3">Details for particular list</h3>
-  </div>
-
-  <div class="col-4 offset-3">
-    <div class="card">
+  <div class="col-4 offset-2">
+    <h3 class="mx-3 card-title"><%= listing.title %></h3>
+    <div class="card ">
       <img src=" <%= listing.image %> " class="card-img-top show-img" alt="" />
       <div class="card-body">
-        <h5 class="card-title mt-2"><%= listing.title %></h5>
-        <p class="card-text">
+        <!-- <h5 class="card-title mt-2"></h5> -->
+        <p class="card-text mt-3">
           <%= listing.description %> <br />
           <span>&#x20B9; <%= listing.price.toLocaleString("en-in")%></span>
           night<br />
@@ -21,8 +18,8 @@
   </div>
 </div>
 
-<div class="btns my-2">
-  <a href="/listings/<%= listing._id %>/edit" class="btn btn-dark offset-3"
+<div class="btns my-2 mx-4">
+  <a href="/listings/<%= listing._id %>/edit" class="btn btn-dark  offset-2"
     >Edit</a
   >
 
