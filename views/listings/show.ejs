@@ -1,14 +1,16 @@
 <% layout("/layouts/boilerplate") %>
   <div class="row mt-2">
-    <div class="col-8 offset-3">
-      <h3 class="mx-3 card-title">
-        <%= listing.title %>
-      </h3>
+    <div class="row">
+      <div class="col-6 mx-auto">
+        <h3 class="card-title">
+          <%= listing.title %>
+        </h3>
+      </div>
     </div>
-      <div class="card col-6 offset-3">
+    <div class="row">
+      <div class="card col-6 mx-auto">
         <img src=" <%= listing.image %> " class="card-img-top show-img" alt="" />
         <div class="card-body ">
-          <!-- <h5 class="card-title mt-2"></h5> -->
           <p class="card-text mt-3">
             <%= listing.description %> <br />
               <span>&#x20B9; <%= listing.price.toLocaleString("en-in")%></span>
@@ -18,15 +20,40 @@
           </p>
         </div>
       </div>
-   
- 
+    </div>
 
+    <div class="row">
+      <div class="col-md-6 offset-3 d-flex">
+        <a href="/listings/<%= listing._id %>/edit" class="btn btn-dark me-3">Edit</a>
 
-  <div class="btns ">
-    <a href="/listings/<%= listing._id %>/edit" class="btn btn-dark offset-3 ">Edit</a>
+        <form method="post" action="/listings/<%= listing._id %>?_method=DELETE">
+          <button class="btn btn-dark">Delete</button>
+        </form>
+      </div>
+    </div>
 
-    <form method="post" action="/listings/<%= listing._id %>?_method=DELETE">
-      <button class="btn btn-dark offset-2">Delete</button>
-    </form>
+    <div class="row">
+      <div class="col-6 mx-auto">
+        <hr>
+        <h4>Leave a comment</h4>
+        <form method="post" action="/listings/<%= listing._id %>/reviews" novalidate class="needs-validation">
+
+          <div class="mb-3">
+            <label for="rating" class="form-label">Rating</label>
+            <input type="range" name="review[rating]" id="rating" class="form-range" min="0" max="5">
+          </div>
+
+          <div class="mb-3">
+            <label for="comment" class="form-label">Comment</label>
+            <textarea class="form-control" id="comment" name="review[comment]" rows="3" required></textarea>
+            <div class="invalid-feedback">
+              Please add some comments for review.
+            </div>
+          </div>
+          <div class="mb-3">
+            <button class="btn btn-outline-dark">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
   </div>
-</div>

@@ -7,7 +7,12 @@ const methodOverride = require("method-override");
 const ejsMate = require("ejs-mate");
 const wrapAsync = require("./utils/wrapAsync.js");
 const ExpressError = require("./utils/ExpressError.js");
-const { listingSchema } = require("./schema.js");
+const { listingSchema} = require("./schema.js");
+const {reviewSchema} = require("./schema.js");
+
+
+const Review = require("./models/review.js");
+
 
 // Mongoose to connect with DB
 let MONGOOSE_URL = "mongodb://127.0.0.1:27017/wanderlust";
@@ -41,14 +46,26 @@ app.get("/", (req, res) => {
 
 // Function to check Validation
 const validationListing = (req, res, next) => {
-    console.log(listingSchema);
+    // console.log(listingSchema);
     let { error } = listingSchema.validate(req.body);
     if (error) {
         throw new ExpressError(400, error);
     }
-    else{
-           next();
-     }
+    else {
+        next();
+    }
+};
+
+// Function to check ReviewValidation
+const validationReview = (req, res, next) => {
+    // console.log(reviewSchema);
+    let { error } = reviewSchema.validate(req.body);
+    if (error) {
+        throw new ExpressError(400, error);
+    }
+    else {
+        next();
+    }
 };
 
 // Index Route
@@ -117,6 +134,19 @@ app.delete(
         res.redirect("/listings");
     })
 );
+
+// Review Route 
+app.post("/listings/:id/reviews", validationReview, wrapAsync( async (req, res) => {
+    let listing = await Listing.findById(req.params.id); //these will return the complete info about that id.
+    let newReview = new Review(req.body.review)
+
+    listing.review.push(newReview);
+
+    await newReview.save();
+    await listing.save();
+
+    console.log("Review Saved");
+}));
 
 // app.get("/testListing", async (req,res)=>{
 //     let sampleListing =  new Listing({
