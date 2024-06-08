@@ -9,8 +9,6 @@ const wrapAsync = require("./utils/wrapAsync.js");
 const ExpressError = require("./utils/ExpressError.js");
 const { listingSchema} = require("./schema.js");
 const {reviewSchema} = require("./schema.js");
-
-
 const Review = require("./models/review.js");
 
 
@@ -146,6 +144,7 @@ app.post("/listings/:id/reviews", validationReview, wrapAsync( async (req, res) 
     await listing.save();
 
     console.log("Review Saved");
+    res.redirect(`/listings/${req.params.id}`)
 }));
 
 // app.get("/testListing", async (req,res)=>{
