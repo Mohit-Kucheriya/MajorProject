@@ -7,8 +7,9 @@ const { listingSchema } = require("../schema.js");
 
 // Function to check Validation
 const validationListing = (req, res, next) => {
-    // console.log(listingSchema);
+    
     let { error } = listingSchema.validate(req.body);
+    // console.log(listingSchema);
     if (error) {
         throw new ExpressError(400, error);
     } else {
@@ -43,6 +44,7 @@ router.get(
 // Create Route
 router.post(
     "/",
+    validationListing,
     wrapAsync(async (req, res) => {
         const newListing = new Listing(req.body.listing); //simply in these we have created new model instance
         await newListing.save();
