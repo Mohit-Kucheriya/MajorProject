@@ -7,6 +7,8 @@ const ejsMate = require("ejs-mate");
 const ExpressError = require("./utils/ExpressError.js");
 const listings = require("./routes/listing.js");
 const reviews = require("./routes/review.js");
+const session = require("express-session");
+// const cookieParser = require('cookie-parser')
 
 // Mongoose to connect with DB
 let MONGOOSE_URL = "mongodb://127.0.0.1:27017/wanderlust";
@@ -41,6 +43,14 @@ app.get("/", (req, res) => {
 // Express Router
 app.use("/listings", listings);
 app.use("/listings/:id/reviews", reviews);
+
+const sessionOptions = {
+    secret:"mysupersecret",
+    resave:false,
+    saveUninitialized:true
+};
+
+app.use(session(sessionOptions));
 
 // After checking all routes if not found then handle the error and send the response.(Middleware)
 app.all("*", (req, res, next) => {
