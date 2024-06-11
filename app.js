@@ -9,6 +9,7 @@ const listings = require("./routes/listing.js");
 const reviews = require("./routes/review.js");
 const session = require("express-session");
 // const cookieParser = require('cookie-parser')
+const flash = require("connect-flash");
 
 // Mongoose to connect with DB
 let MONGOOSE_URL = "mongodb://127.0.0.1:27017/wanderlust";
@@ -40,23 +41,31 @@ app.get("/", (req, res) => {
     res.send("Welcome to MajorProject");
 });
 
-// Express Router
-app.use("/listings", listings);
-app.use("/listings/:id/reviews", reviews);
-
 const sessionOptions = {
-    secret:"mysupersecret",
-    resave:false,
-    saveUninitialized:true,
-    cookies:{
-        expires:Date.now() + 7 * 24 * 60 * 60 * 1000,
-        maxAge: 7 * 24 * 60 * 60 * 1000,
-        httpOnly:true
-
+    secret: "mysupersecret",
+    resave: false,
+    saveUninitialized: true,
+    cookie: {
+        expires: Date.now() + 7 * 24 * 60 * 60 * 1000,
+        maxAge: 3 * 24 * 60 * 60 * 1000,
+        httpOnly: true
     },
 };
 
+// For using express-session and connect-flash
 app.use(session(sessionOptions));
+app.use(flash());
+
+app.use((req, res, next) => {
+    res.locals.success = req.flash("success");
+    res.locals.error = req.flash("error");
+    next();
+})
+
+
+// Express Router
+app.use("/listings", listings);
+app.use("/listings/:id/reviews", reviews);
 
 // After checking all routes if not found then handle the error and send the response.(Middleware)
 app.all("*", (req, res, next) => {

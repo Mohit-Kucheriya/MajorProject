@@ -23,7 +23,9 @@
 
   <body>
     <%- include("../includes/navbar") %>
-    <div id="container"><%- body %></div>
+    <div id="container">
+      <%- include("../includes/flash") %>
+      <%- body %></div>
     <%- include("../includes/footer") %>
 
     <script
