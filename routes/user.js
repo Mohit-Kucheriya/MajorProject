@@ -16,8 +16,15 @@ router.post(
             const newUser = new User({ username, email });
             const registeredUser = await User.register(newUser, password);
             console.log(registeredUser);
-            req.flash("success", "Registered Successfully! Welcome to Wanderlust.");
-            res.redirect("/listings");
+            // After user singup for the first time, req.login will login the user.
+            req.login(registeredUser, (err) => {
+                if (err) {
+                    return next(err)
+                }
+                req.flash("success", "Registered Successfully! Welcome to Wanderlust.");
+                res.redirect("/listings");
+            })
+
         } catch (error) {
             req.flash("error", error.message);
             res.redirect("/signup");
@@ -40,5 +47,15 @@ router.post(
         res.redirect("/listings");
     }
 );
+
+router.get("/logout", (req, res, next) => {
+    req.logout((err) => {
+        if (err) {
+            return next(err);
+        }
+        req.flash("success", "Logout Successfully");
+        res.redirect("/listings");
+    })
+})
 
 module.exports = router;
