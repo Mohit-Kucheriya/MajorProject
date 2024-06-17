@@ -37,7 +37,9 @@ module.exports.validationListing = (req, res, next) => {
     let { error } = listingSchema.validate(req.body);
     // console.log(listingSchema);
     if (error) {
+        console.log(error)
         throw new ExpressError(400, error);
+        
     } else {
         next();
     }
