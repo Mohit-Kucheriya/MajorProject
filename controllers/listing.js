@@ -46,14 +46,22 @@ module.exports.editListingRoute = async (req, res) => {
     res.render("listings/edit.ejs", { listing });
 }
 
-module.exports.updateListingroute = async (req, res) => {
+module.exports.updateListing = async (req, res) => {
     let { id } = req.params;
-    await Listing.findByIdAndUpdate(id, { ...req.body.listing });
-    // res.redirect(`/listings/${id}`);
-    req.flash("success", "Listing Updated");
+    let listing = await Listing.findByIdAndUpdate(id, { ...req.body.listing });
 
-    res.redirect("/listings");
-}
+    //if an image is provided, only then update the filename and url.
+    if (typeof req.file !== "undefined") {
+        let url = req.file.path;
+        let filename = req.file.filename;
+        listing.image = { url, filename };
+
+        await listing.save();
+    }
+
+    req.flash("success", "Listing updated!");
+    res.redirect(`/listings`);
+};
 
 module.exports.destroyListingRoute = async (req, res) => {
     let { id } = req.params;
