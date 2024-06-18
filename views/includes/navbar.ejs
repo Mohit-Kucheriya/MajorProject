@@ -1,6 +1,42 @@
+<style>
+  .btn-search {
+    background-color: #ff385c;
+    color: #fff;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    /* border-radius: 25px; */
+  }
+  .btn-search i{
+    display: inline;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* margin-right: 0.6rem; */
+  }
+
+  .btn-search:hover {
+    background-color: #ff385c;
+    color: #fff;
+  }
+  .search-input{
+    padding: 0 2rem;
+    border-radius: 25px;
+  }
+
+  .search-input:focus {
+  outline: none;
+  box-shadow: none; /* This removes the default box-shadow */
+  border: 0.5px solid #d4d4d4;
+}
+
+</style>
+
 <nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
   <div class="container-fluid">
-    <a class="navbar-brand" href="/listings"><i class="fa-regular fa-compass"></i></a>
+    <a class="navbar-brand" href="/listings"
+      ><i class="fa-regular fa-compass"></i
+    ></a>
     <button
       class="navbar-toggler"
       type="button"
@@ -14,13 +50,26 @@
         <a class="nav-link" href="/listings">Explore</a>
       </div>
 
+
+      <div class="navbar-nav ms-auto">
+        <form class="d-flex" role="search">
+          <input
+            class="form-control me-2 search-input shadow-sm"
+            type="search"
+            placeholder="Search"
+            aria-label="Search"
+          />
+          <button class="btn btn-search" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </form>
+      </div>
+
       <div class="navbar-nav ms-auto">
         <a class="nav-link" href="/listings/new">Airbnb your home</a>
         <% if (!currUser) { %>
-        <a class="nav-link" href="/signup"><b>Sign-up</b></a>
-        <a class="nav-link" href="/login"><b>Login</b></a>
+        <a class="nav-link fw-medium" href="/signup">Sign-up</a>
+        <a class="nav-link fw-medium" href="/login">Login</a>
         <% } %> <% if (currUser) { %>
-        <a class="nav-link" href="/logout"><b>Logout</b></a>
+        <a class="nav-link fw-medium" href="/logout">Logout</a>
         <% } %>
       </div>
     </div>

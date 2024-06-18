@@ -21,10 +21,12 @@ const LocalStrategy = require("passport-local");
 const User = require("./models/user.js");
 
 // Mongoose to connect with DB
-let MONGOOSE_URL = "mongodb://127.0.0.1:27017/wanderlust";
+// let MONGOOSE_URL = "mongodb://127.0.0.1:27017/wanderlust";
+
+let dbUrl = process.env.ATLAS_DB
 
 async function main() {
-    await mongoose.connect(MONGOOSE_URL);
+    await mongoose.connect(dbUrl);
 }
 
 main()
