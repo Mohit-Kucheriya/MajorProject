@@ -15,7 +15,6 @@ router
     //   Create 
     .post(
         isLoggedIn,
-      
         upload.single("listing[image]"),
         validationListing,
         wrapAsync(listingController.createRoute)

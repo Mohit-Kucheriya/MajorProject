@@ -19,14 +19,17 @@
       referrerpolicy="no-referrer"
     />
     <link rel="stylesheet" href="/css/style.css" />
-    <link rel="stylesheet" href="/css/rating.css">
+    <link rel="stylesheet" href="/css/rating.css" />
+    <link
+      href="https://api.mapbox.com/mapbox-gl-js/v3.0.1/mapbox-gl.css"
+      rel="stylesheet"
+    />
+    <script src="https://api.mapbox.com/mapbox-gl-js/v3.0.1/mapbox-gl.js"></script>
   </head>
 
   <body>
     <%- include("../includes/navbar") %>
-    <div id="container">
-      <%- include("../includes/flash") %>
-      <%- body %></div>
+    <div id="container"><%- include("../includes/flash") %> <%- body %></div>
     <%- include("../includes/footer") %>
 
     <script
