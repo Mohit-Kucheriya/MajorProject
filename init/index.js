@@ -13,7 +13,7 @@ main()
 async function main() {
   await mongoose.connect(MONGO_URL);
 }
-const axios = require('axios');
+
 const mapboxAccessToken = 'pk.eyJ1IjoiZGVsdGEtc3R1ZHVlbnQiLCJhIjoiY2xvMDk0MTVhMTJ3ZDJrcGR5ZDFkaHl4ciJ9.Gj2VU1wvxc7rFVt5E4KLOQ';
 async function geocodeLocation(location) {
     try {

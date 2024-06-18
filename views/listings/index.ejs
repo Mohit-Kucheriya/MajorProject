@@ -1,9 +1,69 @@
+<style>
+  .filters{
+    display: flex;
+    gap: 1.2rem;
+    padding:0 1vw ;
+  
+  }
+  .filter{
+    text-align: center;
+    opacity: 0.8;
+  }
+
+  .filter:hover{
+    opacity: 1;
+    cursor: pointer;
+  }
+
+  .filter p{
+    font-size: 0.8rem;
+  }
+</style>
+
 <%- layout("/layouts/boilerplate") %>
   <br />
-  <!-- <h3 class="text-center">All Listings</h3> -->
-  <!-- <form method="get" action="/listings/new">
-    <button>Create new list</button>
-  </form> -->
+<div class="filters">
+  <div class="filter">
+    <div><i class="fa-solid fa-fire"></i></div>
+    <p>Trending</p>
+  </div>
+  <div class="filter">
+    <div><i class="fa-solid fa-bed"></i></i></div>
+    <p>Rooms</p>
+  </div>
+  <div class="filter">
+    <div><i class="fa-solid fa-fire"></i></div>
+    <p>Trending</p>
+  </div>
+  <div class="filter">
+    <div><i class="fa-solid fa-bed"></i></i></div>
+    <p>Rooms</p>
+  </div>
+  <div class="filter">
+    <div><i class="fa-solid fa-fire"></i></div>
+    <p>Trending</p>
+  </div>
+  <div class="filter">
+    <div><i class="fa-solid fa-bed"></i></i></div>
+    <p>Rooms</p>
+  </div>
+  <div class="filter">
+    <div><i class="fa-solid fa-hotel"></i></div>
+    <p>Mansions</p>
+  </div>
+  <div class="filter">
+    <div><i class="fa-solid fa-bed"></i></i></div>
+    <p>Rooms</p>
+  </div>
+  <div class="filter">
+    <div><i class="fa-solid fa-fire"></i></div>
+    <p>Trending</p>
+  </div>
+  <div class="filter">
+    <div><i class="fa-solid fa-bed"></i></i></div>
+    <p>Rooms</p>
+  </div>
+</div>
 
   <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1">
     <% for( listing of allListings) { %>
