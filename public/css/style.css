@@ -54,7 +54,7 @@ body {
 
 .card {
   border: none !important;
-  margin: 1rem;
+  margin-bottom: 2rem;
 }
 .card-img-top {
   border-radius: 0.5rem;
@@ -107,4 +107,8 @@ body {
 #map {
 height: 400px;
 width: 80vh;
+}
+
+.card-listing{
+  padding: 1rem !important;
 }
