@@ -4,10 +4,11 @@
 
 Wanderlust is a web application designed to help travelers share and explore travel experiences. Users can create accounts, log in, and post about their travels, including descriptions and photos. The application leverages modern web development technologies and best practices to ensure a smooth and secure user experience.
 
-## Website PDF
-
-You can view the PDF of my website [↗️](https://github.com/Mohit-Kucheriya/MajorProject/blob/58c9497b2422a9950579ef000a78d68cdff4f78c/Wanderlust.pdf)
-
+## Screenshot
+![Screenshot 1]()
+![Screenshot 2]()
+![Screenshot 3]()
+![Screenshot 4]()
 
 ## Visit the Website
 
